@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:/Users/gabri/Desktop/clientes.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="1"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="816"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,11:mainPedidosItem"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="Clientes" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort><column index="1" mode="1"/></sort><column_widths><column index="1" value="50"/><column index="2" value="105"/><column index="3" value="95"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="Pedidos" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="50"/><column index="2" value="106"/><column index="3" value="82"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="PedidosItem" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="101"/><column index="2" value="102"/><column index="3" value="96"/><column index="4" value="106"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="Produtos" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="50"/><column index="2" value="71"/><column index="3" value="113"/><column index="4" value="46"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">CREATE TABLE Produtos
+(
+ codigo INT,
+ nome varchar (100),
+ descricao varchar (100),
+ preco FLOAT
+)
+
+CREATE TABLE Pedidos
+(
+ codigo INT NOT NULL,
+ datasolicitacao datetime,
+ totalpedido float NOT NULL,
+ codigoclientes INT NOT NULL
+ 
+)
+
+CREATE TABLE PedidosItem
+(
+  CodigoPedidos INT NOT NULL,
+  codigoProduto INT NOT NULL,
+  preco float NOT NULL,
+  quantidade INT NOT NULL
+)
+
+INSERT INTO Produtos(codigo, nome, descricao,preco) VALUES (001, &quot;impressora&quot;, &quot;impressora preta&quot;, 200.00)
+INSERT INTO Produtos(codigo, nome, descricao,preco) VALUES (002, &quot;PC&quot;, &quot;computador usado&quot;, 2000.00)
+INSERT INTO Produtos(codigo, nome, descricao,preco) VALUES (003, &quot;videogame&quot;, &quot;xbox&quot;, 3000.00)
+INSERT INTO Produtos(codigo, nome, descricao,preco) VALUES (004, &quot;videogame&quot;, &quot;ps4&quot;, 4000.00)
+
+INSERT INTO Pedidos(codigo, datasolicitacao, totalpedido,codigoclientes) VALUES (001, '10/06/21', 200.00, 2)
+INSERT INTO Pedidos(codigo, datasolicitacao, totalpedido,codigoclientes) VALUES (002, '29/06/21', 2000.00, 4)
+INSERT INTO Pedidos(codigo, datasolicitacao, totalpedido,codigoclientes) VALUES (004, '01/07/21', 4000.00, 3)
+INSERT INTO Pedidos(codigo, datasolicitacao, totalpedido,codigoclientes) VALUES (003, '04/07/21', 3000.00, 1)
+
+DELETE FROM pedidos
+
+INSERT INTO pedidosItem VALUES (001,001,200.00,1)
+INSERT INTO pedidosItem VALUES (002,002,2000.00,1)
+INSERT INTO pedidosItem VALUES (004,004,4000.00,1)
+INSERT INTO pedidosItem VALUES (003,001,3000.00,1)
+
+DELETE FROM pedidosItem</sql><current_tab id="0"/></tab_sql></sqlb_project>
